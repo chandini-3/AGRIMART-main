@@ -1,0 +1,409 @@
+/* ============================================================
+   FARMER DASHBOARD - PREMIUM HAPPY & VIBRANT UI
+   ============================================================ */
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-green: #10b981;
+  --secondary-green: #059669;
+  --happy-green: #22c55e;
+  --soft-green: #f0fdf4;
+  --text-dark: #0f172a;
+  --text-slate: #64748b;
+  --glass-bg: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(255, 255, 255, 0.4);
+}
+
+.farmer-dashboard {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  position: relative;
+  padding-bottom: 110px;
+  overflow-x: hidden;
+  font-family: 'Outfit', 'Inter', sans-serif;
+}
+
+/* Floating Elements for Sparkle */
+.farmer-dashboard::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(34, 197, 94, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ===================================
+   DASHBOARD HERO - High-Definition
+   =================================== */
+.dashboard-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 48px 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.dashboard-hero {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border-radius: 32px;
+  padding: 40px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+  animation: entrance 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.main-greeting {
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+}
+
+.main-greeting .user-name {
+  color: var(--happy-green);
+  text-shadow: 0 0 20px rgba(34, 197, 94, 0.2);
+}
+
+.dashboard-subtitle {
+  font-size: 16px;
+  color: var(--text-slate);
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.digital-clock {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.clock-col {
+  text-align: right;
+}
+
+.clock-time {
+  display: block;
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--text-dark);
+  font-variant-numeric: tabular-nums;
+}
+
+.clock-date {
+  font-size: 13px;
+  color: var(--happy-green);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.profile-btn {
+  width: 65px;
+  height: 65px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #22c55e, #10b981);
+  padding: 3px;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+}
+
+.profile-btn:hover {
+  transform: rotate(10deg) scale(1.1);
+  box-shadow: 0 15px 30px rgba(16, 185, 129, 0.4);
+}
+
+.profile-img-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--happy-green);
+}
+
+/* ===================================
+   STATS GRID - Vibrant & "Happy"
+   =================================== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--glass-border);
+  border-radius: 28px;
+  padding: 32px;
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.stat-card:hover {
+  transform: scale(1.03) translateY(-5px);
+  background: white;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.stat-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.stat-icon {
+  font-size: 32px;
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s ease;
+}
+
+.stat-card:hover .stat-icon {
+  transform: rotate(-10deg) scale(1.1);
+}
+
+.stat-primary .stat-icon { background: #eff6ff; color: #2563eb; }
+.stat-warning .stat-icon { background: #fffbe3; color: #d97706; }
+.stat-success .stat-icon { background: #f0fdf4; color: #16a34a; }
+.stat-revenue .stat-icon { background: #fef2f2; color: #dc2626; }
+
+.stat-value {
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--text-dark);
+  letter-spacing: -2px;
+}
+
+.stat-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-slate);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-badge {
+  font-size: 11px;
+  font-weight: 800;
+  padding: 6px 12px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.stat-badge.growth { background: #dcfce7; color: #15803d; }
+.stat-badge.pending { background: #fef3c7; color: #92400e; }
+.stat-badge.active { background: #f1f5f9; color: #475569; }
+
+/* ===================================
+   QUICK ACTIONS & WEATHER - Living Design
+   =================================== */
+.dashboard-row {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.quick-actions-card {
+  padding: 40px;
+  border-radius: 32px;
+}
+
+.action-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.action-btn {
+  background: var(--soft-green);
+  border: 2px solid transparent;
+  padding: 32px 20px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.action-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: white;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.action-btn:hover::before { opacity: 0.5; }
+
+.action-btn:hover {
+  transform: translateY(-8px);
+  border-color: var(--happy-green);
+  box-shadow: 0 15px 30px rgba(22, 163, 74, 0.15);
+}
+
+.action-icon { font-size: 40px; z-index: 1; }
+.action-text { font-size: 15px; font-weight: 800; color: var(--text-dark); z-index: 1; }
+
+/* Weather Card - Glassy Blue Night/Day */
+.weather-card {
+  background: linear-gradient(135deg, #10b981 0%, #065f46 100%);
+  color: white;
+  border: none;
+  box-shadow: 0 20px 40px rgba(6, 95, 70, 0.3);
+}
+
+.weather-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.weather-card .section-title { color: white; margin: 0; }
+
+.temp-huge {
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.weather-info-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.weather-mini-item {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ===================================
+   ACTIVITIES & TIPS
+   =================================== */
+.activities-card, .tips-card {
+  border-radius: 32px;
+  padding: 32px;
+}
+
+.activity-item {
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  transition: all 0.3s;
+}
+
+.activity-item:hover {
+  background: white;
+  border-color: var(--happy-green);
+  transform: scale(1.01);
+}
+
+.activity-main { display: flex; align-items: center; gap: 16px; }
+.activity-status-dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot-success { background: #22c55e; box-shadow: 0 0 15px rgba(34, 197, 94, 0.5); }
+.dot-pending { background: #f59e0b; box-shadow: 0 0 15px rgba(245, 158, 11, 0.5); }
+
+.activity-label-group h4 { font-size: 16px; font-weight: 800; color: var(--text-dark); }
+.activity-label-group p { font-size: 14px; color: var(--text-slate); font-weight: 600; }
+
+.activity-time { font-size: 13px; font-weight: 700; color: var(--text-slate); }
+
+/* Tips Card */
+.tips-card {
+  background: #fffbeb;
+  border: 2px solid #fef3c7;
+}
+
+.tip-pill {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.tip-pill p { font-size: 15px; font-weight: 600; color: #92400e; }
+
+/* ===================================
+   ANIMATIONS
+   =================================== */
+@keyframes entrance {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .dashboard-row { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .dashboard-hero { flex-direction: column; text-align: center; gap: 30px; }
+  .digital-clock { text-align: center; justify-content: center; }
+  .clock-col { text-align: center; }
+  .action-buttons { grid-template-columns: 1fr; }
+}
+
+/* Analytics Refinement */
+.chart-bar {
+  background: linear-gradient(to top, #22c55e, #86efac);
+  border-radius: 12px 12px 0 0;
+}
